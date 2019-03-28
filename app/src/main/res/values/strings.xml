@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <array name="MenuOptions">
+        <item>Now Playing</item>
+        <item>Library</item>
+        <item>Settings</item>
+    </array>
+</resources>
