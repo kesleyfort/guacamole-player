@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="User">
+
+        <EditTextPreference
+                android:dialogTitle="Name"
+                android:key="currentUserName"
+                android:title="Name" android:singleLine="true"/>
+        <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="Nickname" android:key="currentUserNickname"
+                android:dialogTitle="Change your nickname"
+        />
+        <Preference
+                android:title="Email"
+                android:key="currentUserEmail">
+        </Preference>
+        <Preference
+                android:summary="Change your password"
+                android:title="Password">
+            <intent
+                    android:action="com.kalves.homeautomation2.ChangePassword"
+                    android:targetClass="com.kalves.homeautomation2.ChangePassword"
+                    android:targetPackage="com.kalves.homeautomation2"/>
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="Application">
+        <SwitchPreference
+                android:key="switch"
+                android:title="Dark Theme"
+                android:summary="Switch to change to dark theme"
+                android:defaultValue="true"/>
+        <Preference
+                android:title="Wifi Settings"
+                android:summary="Open Wifi Settings"
+                android:key="wifisettings">
+        </Preference>
+        <Preference
+                android:title="Bluetooth Settings"
+                android:summary="Open Bluetooth Settings"
+                android:key="bluetoothsettings">
+        </Preference>
+
+        <Preference
+                android:title="Logout"
+                android:summary="Log out of your account"
+                android:key="logoutbutton">
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

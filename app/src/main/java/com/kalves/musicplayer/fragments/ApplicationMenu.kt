@@ -1,4 +1,4 @@
-package com.kalves.musicplayer
+package com.kalves.musicplayer.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kalves.musicplayer.R
 import kotlinx.android.synthetic.main.menu_layout.*
 import kotlinx.android.synthetic.main.menu_item.view.*
 
@@ -29,7 +30,11 @@ const val ARG_MENU_OPTIONS_ID = "item_count"
  */
 class ApplicationMenu : BottomSheetDialogFragment() {
     private var mListener: Listener? = null
-    private val icons: List<Int> = listOf(R.drawable.ic_play_24dp, R.drawable.ic_library_music_24dp, R.drawable.ic_settings_24dp)
+    private val icons: List<Int> = listOf(
+        R.drawable.ic_play_24dp,
+        R.drawable.ic_library_music_24dp,
+        R.drawable.ic_settings_24dp
+    )
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,7 +65,7 @@ class ApplicationMenu : BottomSheetDialogFragment() {
     }
 
     interface Listener {
-        fun onMenuClicked(position: Int)
+        fun onMenuClicked(option: CharSequence)
     }
 
     private inner class ViewHolder internal constructor(inflater: LayoutInflater, parent: ViewGroup) :
@@ -72,7 +77,7 @@ class ApplicationMenu : BottomSheetDialogFragment() {
         init {
             text.setOnClickListener {
                 mListener?.let {
-                    it.onMenuClicked(adapterPosition)
+                    it.onMenuClicked(text.text)
                     dismiss()
                 }
             }
